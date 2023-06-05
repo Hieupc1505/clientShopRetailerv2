@@ -11,7 +11,7 @@ export default defineConfig({
         port: 5173,
         proxy: {
             '^/api/v2/.*': {
-                target: server,
+                target: 'https://shopv2.onrender.com',
                 changeOrigin: true,
                 secure: false,
             },
