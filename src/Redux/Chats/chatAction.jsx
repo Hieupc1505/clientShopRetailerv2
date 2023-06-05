@@ -1,7 +1,7 @@
-import { GET_CHAT_ALL, CHANGE_LIST_CHATS } from "./typeChats";
-import axios from "axios";
+import { GET_CHAT_ALL, CHANGE_LIST_CHATS } from './typeChats';
+import axios from 'axios';
 
-const server = "http://localhost:8500/v1";
+const server = 'http://localhost:8500/v1';
 
 export const updateLatestMessage = (userId, content, sender) => (dispatch) => {
     let index = users.map((item) => item.slug).indexOf(userId);

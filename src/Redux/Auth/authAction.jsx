@@ -96,7 +96,7 @@ export const userLogin = (LoginFormData) => async (dispatch) => {
 export const userLogin2 = (str) => async (dispatch) => {
     try {
         const { data } = await axios.get(`/api/v2/auth/${str}`);
-        console.log(data);
+
         if (data.success) {
             localStorage.setItem(ACCESSTOKEN, data.accessToken);
         }
