@@ -13,7 +13,7 @@ export default defineConfig({
             '^/api/v2/.*': {
                 target: 'https://shopv2.onrender.com',
                 changeOrigin: true,
-                secure: false,
+                secure: true,
             },
         },
     },
