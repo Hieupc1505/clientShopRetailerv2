@@ -8,11 +8,12 @@ const server = 'https://shopv2.onrender.com/';
 export default defineConfig({
     plugins: [react()],
     server: {
+        port: 443,
         proxy: {
             '^/api/v2/.*': {
                 target: 'https://shopv2.onrender.com',
                 changeOrigin: true,
-                secure: false,
+                secure: true,
             },
         },
     },
