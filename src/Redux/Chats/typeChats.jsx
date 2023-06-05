@@ -1,0 +1,3 @@
+export const GET_CHAT_ALL = "GET_CHAT_ALL";
+export const GET_CHAT_ALL_SUCCESS = "GET_CHAT_ALL_SUCCESS";
+export const CHANGE_LIST_CHATS = "CHANGE_LIST_CHATS";

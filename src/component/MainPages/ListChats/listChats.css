@@ -1,0 +1,75 @@
+ul.box-lists {
+    list-style: none;
+    width: 290px;
+    height: 400px;
+    /* border: 1px solid red; */
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+li.box-item-user {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+}
+
+img.box-user-avata-img {
+    width: 52px;
+    height: auto;
+    border-radius: 100%;
+}
+
+.box-user-avata {
+    align-items: center;
+    display: inline-block;
+}
+
+.box-user-info {
+}
+
+.box-user-avata {
+    margin-right: 10px;
+}
+
+.box-user-name {
+    font-weight: 700;
+    line-height: 15px;
+}
+
+li.box-item-user:hover {
+}
+
+li.box-item-user:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+
+.box-header {
+    display: block;
+    font-size: 24px;
+    /* margin: 4px 16px; */
+    border-bottom: 2px solid rebeccapurple;
+    margin: 0;
+    padding: 4px 16px;
+}
+
+.box-list-users {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px;
+    background: rgba(0, 0, 0, 1);
+}
+
+.main-box-chat {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 20px;
+    position: fixed;
+    width: 97%;
+    height: auto;
+    background: transparent;
+    bottom: 10px;
+    z-index: 10;
+}
