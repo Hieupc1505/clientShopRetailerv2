@@ -15,7 +15,7 @@ import {
     REQUEST_FAIL,
     SORT_PRODUCTS,
 } from './typeProduct';
-
+const server = 'https://shopv2.onrender.com';
 export const sortPros = (sortType) => async (dispatch, getState) => {
     const state = getState();
     const { products } = state;
@@ -54,7 +54,7 @@ export const pageSearch = (query) => async (dispatch) => {
     try {
         dispatch({ type: PAGE_SEARCH_REQUEST });
 
-        const { data } = await axios.get(`/api/v2/pds/search/list${query}&page=1`);
+        const { data } = await axios.get(`${server}/api/v2/pds/search/list${query}&page=1`);
         dispatch({
             type: CLIENT_REQUEST_END,
         });
@@ -71,7 +71,7 @@ export const pageSearch = (query) => async (dispatch) => {
 
 export const searchProduct = (name) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`/api/v2/pds/search?key=${name}`);
+        const { data } = await axios.get(`${server}/api/v2/pds/search?key=${name}`);
 
         return data;
     } catch (err) {
@@ -88,7 +88,7 @@ export const getAllProduct =
             dispatch({
                 type: ALL_PRODUCT_REQUEST,
             });
-            const { data } = await axios.get(`/api/v2/pds/products?num=${num}`);
+            const { data } = await axios.get(`${server}/api/v2/pds/products?num=${num}`);
             dispatch({
                 type: ALL_PRODUCT_SUCCESS,
                 payload: {
@@ -105,7 +105,7 @@ export const getAllProduct =
 export const getProductById = (id) => async (dispatch) => {
     try {
         dispatch({ type: SINGLE_PRODUCT_REQUEST });
-        const { data } = await axios.post(`/api/v2/pds/read`, {
+        const { data } = await axios.post(`${server}/api/v2/pds/read`, {
             productId: id,
         });
 
@@ -131,7 +131,7 @@ export const clearError = () => async (dispatch) => {
 export const getProductByCategoryAndNum =
     (num = 10) =>
     async (dispatch) => {
-        const { data } = await axios.get(`/api/v2/pds//sort?bestSell=-1&num=${num}`).catch((err) =>
+        const { data } = await axios.get(`${server}/api/v2/pds//sort?bestSell=-1&num=${num}`).catch((err) =>
             dispatch({
                 type: REQUEST_FAIL,
                 payload: {

@@ -15,7 +15,7 @@ import {
     CART_DETAIL_SUCCESS,
 } from './typeCart';
 import axios from 'axios';
-let server = '/api/v2/cart';
+let server = 'https://shopv2.onrender.com/api/v2/cart';
 
 export const GetOrder = () => async (dispatch) => {
     dispatch({ type: ORDER_GET_REQUEST });

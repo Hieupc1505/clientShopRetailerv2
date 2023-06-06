@@ -17,9 +17,11 @@ import axios from 'axios';
 import setHeaderDefault from '../../component/MainPages/helpers/SetHeader';
 axios.defaults.withCredentials = true;
 
+const server = 'https://shopv2.onrender.com';
+
 export const sendMailForget = (formData) => async (dispatch) => {
     dispatch({ type: USER_REQUEST });
-    const { data } = await axios.post(`/api/v2/auth/forget/account`, formData).catch((err) =>
+    const { data } = await axios.post(`${server}/api/v2/auth/forget/account`, formData).catch((err) =>
         dispatch({
             type: USER_AUTH_FAIL,
             payload: {
@@ -33,7 +35,7 @@ export const sendMailForget = (formData) => async (dispatch) => {
 
 export const sendPassForget = (link, formData) => async (dispatch) => {
     dispatch({ type: USER_REQUEST });
-    const { data } = await axios.post(`/api/v2/auth/reset/account`, formData).catch((err) =>
+    const { data } = await axios.post(`${server}/api/v2/auth/reset/account`, formData).catch((err) =>
         dispatch({
             type: USER_AUTH_FAIL,
             payload: {
@@ -73,7 +75,7 @@ export const clearError = () => async (dispatch) => {
 
 export const userLogin = (LoginFormData) => async (dispatch) => {
     try {
-        const { data } = await axios.post(`/api/v2/auth/login`, LoginFormData, {
+        const { data } = await axios.post(`${server}/api/v2/auth/login`, LoginFormData, {
             withCredentials: true,
         });
 
@@ -95,7 +97,7 @@ export const userLogin = (LoginFormData) => async (dispatch) => {
 };
 export const userLogin2 = (str) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`/api/v2/auth/${str}`);
+        const { data } = await axios.get(`${server}/api/v2/auth/${str}`);
 
         if (data.success) {
             localStorage.setItem(ACCESSTOKEN, data.accessToken);
@@ -117,7 +119,7 @@ export const userLogin2 = (str) => async (dispatch) => {
 export const userRegister = (RegisterFormData) => async (dispatch) => {
     try {
         dispatch({ type: USER_REGISTER_REQUEST });
-        const { data } = await axios.post(`/api/v2/auth/register`, RegisterFormData);
+        const { data } = await axios.post(`${server}/api/v2/auth/register`, RegisterFormData);
         dispatch({
             type: USER_REGISTER_SUCCESS,
         });
@@ -134,7 +136,7 @@ export const userRegister = (RegisterFormData) => async (dispatch) => {
 };
 export const userLogout = () => async (dispatch) => {
     dispatch({ type: USER_LOGIN_REQUEST });
-    const { data } = await axios.get(`/api/v2/auth/logout`);
+    const { data } = await axios.get(`${server}/api/v2/auth/logout`);
     localStorage.removeItem(ACCESSTOKEN);
     setHeaderDefault(null);
     dispatch({ type: USER_LOGOUT });
